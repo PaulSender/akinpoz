@@ -2,17 +2,13 @@ const algosdk = require('algosdk');
 require('dotenv').config()
 const baseServer = "https://testnet-algorand.api.purestake.io/ps2";
 const port = "";
-var atob = require('atob');
-var base32 = require('base32')
 
 const token = {
     'X-API-key': 'GGlYO9xaT48yOVUyXKExp3u3PNe4XigI9N85FxGa',
 }
-
-
 const indexerClient = new algosdk.Indexer(token, baseServer, port);
 const algodClient = new algosdk.Algodv2(token, baseServer, port);
-
+console.log(process.env)
 (async () => {
     let blockInfo = await indexerClient.lookupBlock(5).do()
     // console.log(blockInfo)
